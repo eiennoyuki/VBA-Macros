@@ -79,8 +79,7 @@ Attribute Mail_Selection_Range_Outlook_Body.VB_ProcData.VB_Invoke_Func = "m\n14"
 
     On Error Resume Next
     With OutMail
-        .To = "ifslaxfsms@delta.com; ifslaxontime@delta.com; sean.hobbs@delta.com; " & _
-            "shonte.hines@delta.com; kevin.vanderford@delta.com; raymond.warren@delta.com"
+        .To = "mark.liv@delta.com
         .CC = ""
         .BCC = ""
         .Subject = "List Of Flights To Own - " & Format(Now(), "ddmmmyy")
