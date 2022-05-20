@@ -51,11 +51,10 @@ End Sub
 'Only to be ran upon creating a new document from template
 Sub AutoNew()
     Module1.Info
-    TemplateURL = "https://deltaairlines.sharepoint.com/sites/DL001738/LAX/Shared Documents/Forms/"
-    SaveURL = "https://deltaairlines.sharepoint.com/sites/DL001738/LAX/Shared Documents/"
+    TemplateURL = "https://SP_Website/Forms/"
+    SaveURL = "https://SP_Website/Shared Documents/"
     
-    
-' FILE INSERT
+' FILE INSERT - Template files need to be in SP_Website/Forms/ folder
     If DocType = "x" Then
         Application.Quit
     ElseIf DocType = "o" Then
@@ -216,22 +215,14 @@ Dim BaseList As String
 
 'List of all distribution lists and recipients
 If DocType = "o" Or ActiveDocument.Name Like "*Opening*" Then
-    DistListCon = "brian.boudreau@delta.com; IFSLAXFSMs@delta.com; LAX118OSM@delta.com;" & _
-                "IFSOCCMGRS@delta.com; IFSSchedulers@delta.com; IFSSCHEDULINGMGRS@delta.com; " & _
-                "IFSSupportcenter@delta.com; LAXACC_Coordinators@delta.com; IFSLAXONTIME@delta.com; " & _
-                "ifs_LAXASRs@delta.com; rylee.velthuis@delta.com"
+    DistListCon = "mark.liv@email.com"
                 
 ElseIf DocType = "c" Or ActiveDocument.Name Like "*Closing*" Then
-    DistListCon = "brian.boudreau@delta.com; IFSLAXFSMs@delta.com; " & _
-                "IFSOCCMGRS@delta.com; IFSSchedulers@delta.com; IFSSCHEDULINGMGRS@delta.com; " & _
-                "IFSSupportcenter@delta.com; LAXACC_Coordinators@delta.com; IFSLAXONTIME@delta.com; " & _
-                "ifs_LAXASRs@delta.com; rylee.velthuis@delta.com"
-                
+    DistListCon = "mark.liv@email.com"
+                               
 ElseIf DocType = "s" Or ActiveDocument.Name Like "*Shift*" Then
-    DistListCon = "IFSLAXFSMs@delta.com; brian.boudreau@delta.com; Sven.a.finucan@delta.com; " & _
-                "Tracy.L.Gallegos@delta.com; Delta, ODCCIFS.Delta@delta.com; Susan.Judson@delta.com; " & _
-                "lauren.davis@delta.com; taray.blake@delta.com"
-                
+    DistListCon = "mark.liv@email.com"
+                               
 ElseIf DocType = "d" Or ActiveDocument.Name Like "*DIF*" Then
     Urgent = InputBox("Is this the death of either:" & vbNewLine & _
         "1.  The FA themselves?" & vbNewLine & _
@@ -246,17 +237,17 @@ ElseIf DocType = "d" Or ActiveDocument.Name Like "*DIF*" Then
         "3.  The spouse/partner of the respective FA?")
     Loop
     If Urgent = "No" Or Urgent = "N" Or Urgent = "no" Or Urgent = "n" Then
-        DistListCon = "IFSLAXFSMs@delta.com; brian.boudreau@delta.com; Rylee.Velthuis@delta.com; ifs_LAXASRs@delta.com"
-        
+        DistListCon = "mark.liv@email.com"
+                        
     Else
-    DistListCon = "ifs_LAXASRs@delta.com; taray.blake@delta.com; pamela.b.strickland@delta.com; Mary.Houman@delta.com; " & _
-                "Mike.Keyes@delta.com; brian.boudreau@delta.com; IFSLAXFSMS@delta.com"
+    DistListCon = "mark.liv@email.com"
+                
     oItem.Importance = 2
     End If
 
 ElseIf DocType = "i" Or ActiveDocument.Name Like "*Incident*" Then
-    DistListCon = "Safety.IFS@delta.com; IFSHSS@delta.com; IFSOCCMGRS@delta.com; IFSLAXFSMS@delta.com"
-
+        DistListCon = "mark.liv@email.com"
+                
 End If
 
 'Send to and CC designation
